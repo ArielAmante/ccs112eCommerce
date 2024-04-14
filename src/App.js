@@ -1,25 +1,46 @@
 // App.js
 import React, { useState } from 'react';
-import './App.css';
-import ProductList from './components/ProductList'; // Adjusted import path
-import Cart from './components/Cart'; // Adjusted import path
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './App.css'; // Import the CSS file
+import Home from './components/Home'; // Adjust the path accordingly
+import ProductList from './components/ProductList'; // Adjust the path accordingly
+import ViewCart from './components/ViewCart'; // Adjust the path accordingly
 
-const App = () => {
-  const [cartItems, setCartItems] = useState([]);
+function App() {
+  const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    setCartItems([...cartItems, product]);
+    setCart([...cart, product]);
+  };
+
+  const removeFromCart = (index) => {
+    const newCart = [...cart];
+    newCart.splice(index, 1);
+    setCart(newCart);
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>E-commerce Website</h1>
-      </header>
-      <ProductList addToCart={addToCart} />
-      <Cart items={cartItems} />
-    </div>
+    <Router>
+      <div className="container">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <Link className="navbar-brand" to="/">Company Logo</Link>
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to="/products">Proceed to Shopping</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/cart">My Cart</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductList addToCart={addToCart} />} />
+          <Route path="/cart" element={<ViewCart cart={cart} removeFromCart={removeFromCart} />} />
+        </Routes>
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;

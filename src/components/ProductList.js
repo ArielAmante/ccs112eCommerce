@@ -1,7 +1,13 @@
 // ProductList.js
-import React from 'react';
+import React, { useState } from 'react';
 
-const ProductList = ({ addToCart }) => {
+const ProductList = () => {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
+
   const products = [
     { id: 1, name: 'Intermediate Pad', description: '1 whole', price: 10 },
     { id: 2, name: '1 pair of Scissors', description: 'HBW', price: 15 },
@@ -18,25 +24,20 @@ const ProductList = ({ addToCart }) => {
 
   return (
     <div className="product-list-container">
-      <h2>PRODUCTS</h2>
+      <h2>Products</h2>
       <ul className="product-list">
         {products.map(product => (
           <li key={product.id} className="product-item">
             <div className="product-details">
               <h3 className="product-name">{product.name}</h3>
-              <p className="product-description">{product.description}</p>
-              <p className="product-price">Price: ${product.price}</p>
-              <div className="tab">
-                <p>{product.description}</p>
-                <p>Price: ${product.price}</p>
-                <button onClick={() => addToCart(product)} className="add-to-cart-button">Add to Cart</button>
-              </div>
+              <p className="product-price">₱ {product.price}</p>
+              <button onClick={() => addToCart(product)} className="add-to-cart-button">Add to Cart</button>
             </div>
           </li>
         ))}
       </ul>
     </div>
   );
-};
+}
 
 export default ProductList;
