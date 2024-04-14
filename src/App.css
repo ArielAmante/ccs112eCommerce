@@ -1,38 +1,117 @@
-.App {
+/* App.css */
+
+/* Set the background color of the body to orange */
+body {
+  background-color: orange;
+}
+
+/* Style the header with a blue background and white text */
+.App-header {
+  background-color: blue;
+  color: white;
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Style the product cards with a pink background and black text */
+.card {
+  background-color: pink;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Style the 'Add to Cart' button */
+.btn-primary {
+  background-color: blue; /* Change button color to match the header */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Style the cart summary */
+.Cart-Summary {
+  background-color: blue; /* Change cart summary background color */
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+/* Style the list items in the cart summary */
+.Cart-Summary ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style the total price paragraph */
+.Cart-Summary p {
+  margin-top: 10px;
+}
+
+/* App.css */
+.product-list-container {
+  background: linear-gradient(to bottom, orange, white);
+  padding: 20px;
+}
+
+.product-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.product-item {
+  width: 300px;
+  margin: 0 10px 20px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  background-color: navy;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.product-item:hover {
+  transform: translateY(-5px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product-details {
+  padding: 10px;
+  text-align: center;
+}
+
+.product-name {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: orange;
+}
+
+.product-price {
+  margin: 10px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: orange;
+}
+
+.add-to-cart-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: rgb(38, 172, 61);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.add-to-cart-button:hover {
+  background-color: rgb(11, 238, 49);
 }
