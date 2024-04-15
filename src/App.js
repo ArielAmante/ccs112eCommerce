@@ -1,16 +1,17 @@
-// App.js
+//App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css'; // Import the CSS file
-import Home from './components/Home'; // Adjust the path accordingly
-import ProductList from './components/ProductList'; // Adjust the path accordingly
-import ViewCart from './components/ViewCart'; // Adjust the path accordingly
+import './App.css';
+import Home from './components/Home';
+import ProductList from './components/ProductList';
+import Cart from './components/Cart';
+import ViewCart from './components/ViewCart'; // Import the ViewCart component
 
 function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    setCart([...cart, { ...product, quantity: 1 }]);
   };
 
   const removeFromCart = (index) => {
@@ -19,24 +20,41 @@ function App() {
     setCart(newCart);
   };
 
+  const incrementQuantity = (index) => {
+    const newCart = [...cart];
+    newCart[index].quantity++;
+    setCart(newCart);
+  };
+
+  const decrementQuantity = (index) => {
+    const newCart = [...cart];
+    if (newCart[index].quantity > 1) {
+      newCart[index].quantity--;
+      setCart(newCart);
+    }
+  };
+
   return (
     <Router>
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <Link className="navbar-brand" to="/">Company Logo</Link>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/products">Proceed to Shopping</Link>
+              <Link className="nav-link" to="/">HOMEPAGE</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/cart">My Cart</Link>
+              <Link className="nav-link" to="/products">PROCEED TO SHOPPING</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/cart">MY CART</Link>
             </li>
           </ul>
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductList addToCart={addToCart} />} />
-          <Route path="/cart" element={<ViewCart cart={cart} removeFromCart={removeFromCart} />} />
+          <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} incrementQuantity={incrementQuantity} decrementQuantity={decrementQuantity} />} />
+          <Route path="/viewcart" element={<ViewCart cart={cart} removeFromCart={removeFromCart} />} /> {/* Add Route for ViewCart */}
         </Routes>
       </div>
     </Router>

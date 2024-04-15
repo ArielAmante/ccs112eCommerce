@@ -1,13 +1,8 @@
 // ProductList.js
-import React, { useState } from 'react';
+import React from 'react';
+// import Product from './Product'; // Remove or comment out the import statement
 
-const ProductList = () => {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
-
+const ProductList = ({ addToCart }) => {
   const products = [
     { id: 1, name: 'Intermediate Pad', description: '1 whole', price: 10 },
     { id: 2, name: '1 pair of Scissors', description: 'HBW', price: 15 },
