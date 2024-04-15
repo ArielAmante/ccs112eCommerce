@@ -7,16 +7,25 @@ body {
 
 /* Style the header with a blue background and white text */
 .App-header {
-  background-color: blue;
+  background: linear-gradient(to bottom, orange, white);
+
   color: white;
   padding: 20px;
   text-align: center;
 }
 
 /* Style the links in the header */
-.navbar-nav .nav-link {
-  color: white;
+.nav-link {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 30px !important; /* Enlarge the font size to 30 */
 }
+
+.nav-link:hover {
+  border-bottom: 2px solid black;
+}
+
 
 /* Style the product list container */
 .product-list-container {
@@ -83,4 +92,33 @@ body {
 
 .add-to-cart-button:hover {
   background-color: rgb(11, 238, 49);
+}
+
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-link {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid black;
+}
+
+.main-content {
+  text-align: center; /* Center the content */
 }
