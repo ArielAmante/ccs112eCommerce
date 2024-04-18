@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+// ProductList.js
+import React from 'react';
+// import Product from './Product'; // Remove or comment out the import statement
 
-const ProductList = () => {
-  const [cart, setCart] = useState([]);
-  const [isAdding, setIsAdding] = useState(false);
-  const [newProduct, setNewProduct] = useState({
-    id: '',
-    name: '',
-    description: '',
-    price: '',
-  });
-  const [products, setProducts] = useState([
+const ProductList = ({ addToCart }) => {
+  const products = [
     { id: 1, name: 'Intermediate Pad', description: '1 whole', price: 10, image: 'intermediate_pad.jpg' },
     { id: 2, name: '1 pair of Scissors', description: 'HBW', price: 15, image: 'scissors.jpg' },
     { id: 3, name: 'Long Bond Paper', description: 'Orion', price: 30, image: 'long_bond_paper.jpg' },
@@ -23,42 +17,7 @@ const ProductList = () => {
     { id: 11, name: 'Pencil Sharpener', description: 'Manual', price: 3, image: 'pencil_sharpener.jpg' },
     { id: 12, name: 'Eraser', description: 'Rubber', price: 2, image: 'eraser.jpg' },
     { id: 13, name: 'Calculator', description: 'Scientific', price: 50, image: 'calculator.jpg' },
-  ]);
-
-  const handleAddButtonClick = () => {
-    setIsAdding(true);
-  };
-
-  const handleAddProduct = () => {
-    // Validate the new product
-    if (newProduct.id && newProduct.name && newProduct.price) {
-      // Add the new product to the products list
-      setProducts([...products, newProduct]);
-      // Clear the form fields
-      setNewProduct({
-        id: '',
-        name: '',
-        description: '',
-        price: '',
-      });
-      // Hide the add form after adding the product
-      setIsAdding(false);
-    } else {
-      alert('Please fill out all fields.');
-    }
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewProduct({
-      ...newProduct,
-      [name]: value,
-    });
-  };
-
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
+  ];
 
   return (
     <div className="product-list-container">
@@ -67,7 +26,7 @@ const ProductList = () => {
         {products.map(product => (
           <li key={product.id} className="product-item">
             <div className="product-details">
-              <img src={require(`./images/${product.image}`).default} alt={product.name} className="product-image" />
+            <img src={require(`./images/${product.image}`).default} alt={product.name} className="product-image" />
               <h3 className="product-name">{product.name}</h3>
               <p className="product-price">₱ {product.price}</p>
               <button onClick={() => addToCart(product)} className="add-to-cart-button">Add to Cart</button>
@@ -75,30 +34,6 @@ const ProductList = () => {
           </li>
         ))}
       </ul>
-      {isAdding ? (
-        <div className="add-product-form">
-          <h2>Add New Product</h2>
-          <label>
-            ID:
-            <input type="text" name="id" value={newProduct.id} onChange={handleInputChange} />
-          </label>
-          <label>
-            Name:
-            <input type="text" name="name" value={newProduct.name} onChange={handleInputChange} />
-          </label>
-          <label>
-            Description:
-            <input type="text" name="description" value={newProduct.description} onChange={handleInputChange} />
-          </label>
-          <label>
-            Price:
-            <input type="text" name="price" value={newProduct.price} onChange={handleInputChange} />
-          </label>
-          <button onClick={handleAddProduct}>Add Product</button>
-        </div>
-      ) : (
-        <button onClick={handleAddButtonClick}>Add</button>
-      )}
     </div>
   );
 }
