@@ -1,26 +1,64 @@
-// ProductList.js
-import React from 'react';
-// import Product from './Product'; // Remove or comment out the import statement
+import React, { useState } from 'react';
 
-const ProductList = ({ addToCart }) => {
-    const products = [
-      { id: 1, name: 'Intermediate Pad', description: '1 whole', price: 10 },
-      { id: 2, name: '1 pair of Scissors', description: 'HBW', price: 15 },
-      { id: 3, name: 'Long Bond Paper', description: 'Orion', price: 30 },
-      { id: 4, name: 'Short Bond Paper', description: 'Orion', price: 25 },
-      { id: 5, name: '1 pc Black Ballpen', description: 'G-Tech', price: 5 },
-      { id: 6, name: '1 pc. Blue Ballpen', description: 'Panda', price: 8 },
-      { id: 7, name: '1 pc Manila Paper', description: 'with border', price: 25 },
-      { id: 8, name: 'Assorted Cartolina', description: 'with border', price: 25 },
-      { id: 9, name: 'Assorted Art Paper', description: '1 rim', price: 25 },
-      { id: 10, name: 'Plastic Cover', description: '2ft', price: 16 },
-      // Added items
-      { id: 11, name: 'Pencil Sharpener', description: 'Manual', price: 3 },
-      { id: 12, name: 'Eraser', description: 'Rubber', price: 2 },
-      // Modified item
-      { id: 13, name: 'Calculator', description: 'Scientific', price: 50 },
-    ];
+const ProductList = () => {
+  const [cart, setCart] = useState([]);
+  const [isAdding, setIsAdding] = useState(false);
+  const [newProduct, setNewProduct] = useState({
+    id: '',
+    name: '',
+    description: '',
+    price: '',
+  });
+  const [products, setProducts] = useState([
+    { id: 1, name: 'Intermediate Pad', description: '1 whole', price: 10 },
+    { id: 2, name: '1 pair of Scissors', description: 'HBW', price: 15 },
+    { id: 3, name: 'Long Bond Paper', description: 'Orion', price: 30 },
+    { id: 4, name: 'Short Bond Paper', description: 'Orion', price: 25 },
+    { id: 5, name: '1 pc Black Ballpen', description: 'G-Tech', price: 5 },
+    { id: 6, name: '1 pc. Blue Ballpen', description: 'Panda', price: 8 },
+    { id: 7, name: '1 pc Manila Paper', description: 'with border', price: 25 },
+    { id: 8, name: 'Assorted Cartolina', description: 'with border', price: 25 },
+    { id: 9, name: 'Assorted Art Paper', description: '1 rim', price: 25 },
+    { id: 10, name: 'Plastic Cover', description: '2ft', price: 16 },
+    { id: 11, name: 'Pencil Sharpener', description: 'Manual', price: 3 },
+    { id: 12, name: 'Eraser', description: 'Rubber', price: 2 },
+    { id: 13, name: 'Calculator', description: 'Scientific', price: 50 },
+  ]);
 
+  const handleAddButtonClick = () => {
+    setIsAdding(true);
+  };
+
+  const handleAddProduct = () => {
+    // Validate the new product
+    if (newProduct.id && newProduct.name && newProduct.price) {
+      // Add the new product to the products list
+      setProducts([...products, newProduct]);
+      // Clear the form fields
+      setNewProduct({
+        id: '',
+        name: '',
+        description: '',
+        price: '',
+      });
+      // Hide the add form after adding the product
+      setIsAdding(false);
+    } else {
+      alert('Please fill out all fields.');
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewProduct({
+      ...newProduct,
+      [name]: value,
+    });
+  };
+
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
 
   return (
     <div className="product-list-container">
@@ -36,6 +74,30 @@ const ProductList = ({ addToCart }) => {
           </li>
         ))}
       </ul>
+      {isAdding ? (
+        <div className="add-product-form">
+          <h2>Add New Product</h2>
+          <label>
+            ID:
+            <input type="text" name="id" value={newProduct.id} onChange={handleInputChange} />
+          </label>
+          <label>
+            Name:
+            <input type="text" name="name" value={newProduct.name} onChange={handleInputChange} />
+          </label>
+          <label>
+            Description:
+            <input type="text" name="description" value={newProduct.description} onChange={handleInputChange} />
+          </label>
+          <label>
+            Price:
+            <input type="text" name="price" value={newProduct.price} onChange={handleInputChange} />
+          </label>
+          <button onClick={handleAddProduct}>Add Product</button>
+        </div>
+      ) : (
+        <button onClick={handleAddButtonClick}>Add</button>
+      )}
     </div>
   );
 }
