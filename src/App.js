@@ -1,11 +1,11 @@
-//App.js
+// App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
-import ViewCart from './components/ViewCart'; // Import the ViewCart component
+import ViewCart from './components/ViewCart';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -34,6 +34,10 @@ function App() {
     }
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
   return (
     <Router>
       <div className="container">
@@ -53,8 +57,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductList addToCart={addToCart} />} />
-          <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} incrementQuantity={incrementQuantity} decrementQuantity={decrementQuantity} />} />
-          <Route path="/viewcart" element={<ViewCart cart={cart} removeFromCart={removeFromCart} />} /> {/* Add Route for ViewCart */}
+          <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} incrementQuantity={incrementQuantity} decrementQuantity={decrementQuantity} clearCart={clearCart} />} />
+          <Route path="/viewcart" element={<ViewCart cart={cart} removeFromCart={removeFromCart} />} />
         </Routes>
       </div>
     </Router>

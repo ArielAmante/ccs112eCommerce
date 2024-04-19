@@ -127,3 +127,86 @@ body {
 .main-content {
   text-align: center; /* Center the content */
 }
+
+/* Style the cart container */
+.cart-container {
+  max-width: 800px; /* Adjust max-width as needed */
+  margin: auto; /* Center the container */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style the cart title */
+.cart-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style the cart table */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+/* Style the cart table header */
+.cart-table th {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+
+/* Style the cart table rows */
+.cart-table tr {
+  border: 1px solid #ddd;
+}
+
+/* Style the cart table data cells */
+.cart-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+/* Style the total row */
+.cart-table .total-row {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Style the checkout button */
+.checkout-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  text-align: center;
+  text-decoration: none;
+}
+
+.checkout-button:hover {
+  background-color: #45a049;
+}
+
+/* App.css */
+.remove-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+  background-color: darkred;
+}
+  

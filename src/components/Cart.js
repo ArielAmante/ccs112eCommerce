@@ -1,46 +1,52 @@
-//Cart.js
+// Cart.js
 import React from 'react';
 
-const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity }) => {
+const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity, clearCart }) => {
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
+  const handleCheckout = () => {
+    alert('Your order has been placed. Thank you for your purchase');
+    clearCart(); // Clear the cart after placing the order
+  };
+
   return (
-    <div className="My-Cart" style={{ fontSize: '20px' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>My Cart</h2>
-      <table style={{ margin: 'auto' }}>
+    <div className="cart-container">
+      <h2 className="cart-title">My Cart</h2>
+      <table className="cart-table">
         <thead>
           <tr>
-            <th style={{ minWidth: '200px', textAlign: 'left' }}>Product</th>
-            <th style={{ minWidth: '200px', textAlign: 'left' }}>Description</th>
-            <th style={{ minWidth: '100px', textAlign: 'center' }}>Price</th>
-            <th style={{ minWidth: '100px', textAlign: 'center' }}>Quantity</th>
-            <th style={{ minWidth: '100px', textAlign: 'center' }}>Action</th>
-            <th style={{ minWidth: '100px', textAlign: 'center' }}>Total</th>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+            <th>Total</th>
           </tr>
         </thead>
         <tbody>
           {cart.map((item, index) => (
             <tr key={index}>
-              <td style={{ textAlign: 'left' }}>{item.name}</td>
-              <td style={{ textAlign: 'left' }}>{item.description}</td>
-              <td style={{ textAlign: 'center' }}>₱ {item.price}</td>
-              <td style={{ textAlign: 'center' }}>
+              <td>{item.name}</td>
+              <td>{item.description}</td>
+              <td>₱ {item.price}</td>
+              <td>
                 <button onClick={() => decrementQuantity(index)}>-</button>
                 {item.quantity}
                 <button onClick={() => incrementQuantity(index)}>+</button>
               </td>
-              <td style={{ textAlign: 'center' }}>
-                <button onClick={() => removeFromCart(index)}>Remove</button>
+              <td>
+                <button className="remove-button" onClick={() => removeFromCart(index)}>Remove</button>
               </td>
-              <td style={{ textAlign: 'center' }}>₱ {item.price * item.quantity}</td>
+              <td>₱ {item.price * item.quantity}</td>
             </tr>
           ))}
-          <tr>
-            <td colSpan="5" style={{ textAlign: 'right', paddingTop: '20px' }}>Total:</td>
-            <td style={{ paddingTop: '20px', textAlign: 'center' }}>₱ {totalPrice}</td>
+          <tr className="total-row">
+            <td colSpan="5">Total:</td>
+            <td>₱ {totalPrice}</td>
           </tr>
         </tbody>
       </table>
+      <button className="checkout-button" onClick={handleCheckout}>Checkout</button>
     </div>
   );
 };
