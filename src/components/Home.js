@@ -1,13 +1,13 @@
 // Home.js
 import React from 'react';
 import './Homepage.css';
-import logo from '../images/Logo.png'; // Update the logo import path
+import logo from '../images/Logo.jpg'; // Update the logo import path
 
 const Home = () => {
   return (
     <div className="home-container">
       <div className="logo">
-        <img src={logo} alt="Logo"/>
+        <img className='rounded-circle' src={logo} alt="Logo"/>
       </div>
 
       <div className="content">

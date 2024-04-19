@@ -2,7 +2,7 @@
 
 /* Set the background color of the body to orange */
 body {
-  background-color: orange;
+  background-color: rgb(7, 7, 7);
 }
 
 /* Style the header with a blue background and white text */
@@ -27,7 +27,7 @@ body {
 
 /* Style the product list container */
 .product-list-container {
-  background: linear-gradient(to bottom, orange, white);
+  background: linear-gradient(to bottom, rgb(4, 4, 4) 4, 4), rgb(46, 39, 39));
   padding: 20px;
 }
 
@@ -48,7 +48,7 @@ body {
   border-radius: 5px;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
-  background-color: navy;
+  background-color: rgb(243, 243, 243);
   color: white;
   flex: 1 1 auto; /* Let items fill the available space */
   max-width: calc(30% - 70px); /* Limit width to fit 5 items per row with margin */
@@ -67,27 +67,29 @@ body {
   flex-grow: 1; /* Allow details to grow vertically */
   justify-content: space-between; /* Align details vertically */
   padding: 10px;
+ 
 }
 
 .product-name {
   margin: 0;
   font-size: 1.2em;
   font-weight: bold;
-  color: orange;
+  color: rgb(16, 16, 16);
+  text-align: center;
 }
 
 .product-price {
   margin: 10px 0;
   font-size: 1.1em;
   font-weight: bold;
-  color: orange;
+  color: rgb(14, 14, 14);
 }
 
 .add-to-cart-button {
   margin-top: auto; /* Align to the bottom */
   margin-bottom: 10px; /* Add some space at the bottom */
   padding: 5px 10px;
-  background-color: rgb(38, 172, 61);
+  background-color: #ee4d2d;
   color: white;
   border: none;
   border-radius: 5px;
@@ -96,7 +98,7 @@ body {
 }
 
 .add-to-cart-button:hover {
-  background-color: rgb(11, 238, 49);
+  background-color: rgb(30, 16, 16);
 }
 
 .navigation {
@@ -113,13 +115,38 @@ body {
 .nav-links li {
   display: inline;
 }
+.navbar-nav {
+  flex: 1;  /* Makes each navbar-nav grow equally */
+  background-color: #ee4d2d;
+  justify-content: center; /* Center the links inside each navbar-nav */
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 
+
+
+.nav-link.btn.btn-outline-primary:hover {
+  color: white; /* Set text color to white */
+  background-color: black; /* Set background color to black */
+  border-color: black; /* Optional: set border color to black if needed */
+}
+
+
+}
+.navbar-nav:hover {
+  background-color: 
+}
 .nav-link {
   margin-right: 10px;
   text-decoration: none;
   color: black;
+  display: flex;
+  text-align: center;
 }
-
+.nav-item {
+  text-align: center;
+}
 .nav-link:hover {
   border-bottom: 2px solid black;
 }
@@ -210,3 +237,14 @@ body {
   background-color: darkred;
 }
   
+h2 { 
+  justify-content: center;
+  
+}
+/* In your App.css or similar file */
+/* In your App.css or similar file */
+/* In your App.css or similar file */
+.btn.btn-custom-checkout {
+  background-color: #ee4d2d;
+  color: white;
+}
