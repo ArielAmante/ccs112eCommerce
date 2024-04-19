@@ -27,7 +27,7 @@ body {
 
 /* Style the product list container */
 .product-list-container {
-  background: linear-gradient(to bottom, rgb(4, 4, 4) 4, 4), rgb(46, 39, 39));
+  background: linear-gradient(to bottom, rgb(4, 4, 4) 4, 4), rgb(46, 39, 39);
   padding: 20px;
 }
 
@@ -67,7 +67,6 @@ body {
   flex-grow: 1; /* Allow details to grow vertically */
   justify-content: space-between; /* Align details vertically */
   padding: 10px;
- 
 }
 
 .product-name {
@@ -115,6 +114,7 @@ body {
 .nav-links li {
   display: inline;
 }
+
 .navbar-nav {
   flex: 1;  /* Makes each navbar-nav grow equally */
   background-color: #ee4d2d;
@@ -123,8 +123,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
-
-
+}
 
 .nav-link.btn.btn-outline-primary:hover {
   color: white; /* Set text color to white */
@@ -132,11 +131,10 @@ body {
   border-color: black; /* Optional: set border color to black if needed */
 }
 
-
-}
 .navbar-nav:hover {
-  background-color: 
+  background-color: #ee4d2d; /* Change the background color on hover */
 }
+
 .nav-link {
   margin-right: 10px;
   text-decoration: none;
@@ -144,9 +142,11 @@ body {
   display: flex;
   text-align: center;
 }
+
 .nav-item {
   text-align: center;
 }
+
 .nav-link:hover {
   border-bottom: 2px solid black;
 }
@@ -223,7 +223,7 @@ body {
   background-color: #45a049;
 }
 
-/* App.css */
+/* Style the remove button */
 .remove-button {
   background-color: red;
   color: white;
@@ -236,14 +236,12 @@ body {
 .remove-button:hover {
   background-color: darkred;
 }
-  
+
 h2 { 
   justify-content: center;
-  
 }
-/* In your App.css or similar file */
-/* In your App.css or similar file */
-/* In your App.css or similar file */
+
+/* Style the custom checkout button */
 .btn.btn-custom-checkout {
   background-color: #ee4d2d;
   color: white;
