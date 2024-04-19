@@ -8,7 +8,6 @@ body {
 /* Style the header with a blue background and white text */
 .App-header {
   background: linear-gradient(to bottom, orange, white);
-
   color: white;
   padding: 20px;
   text-align: center;
@@ -25,7 +24,6 @@ body {
 .nav-link:hover {
   border-bottom: 2px solid black;
 }
-
 
 /* Style the product list container */
 .product-list-container {
@@ -45,14 +43,17 @@ body {
 
 /* Style the product item */
 .product-item {
-  width: 300px;
-  margin: 0 10px 20px 10px;
+  margin: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
   background-color: navy;
   color: white;
+  flex: 1 1 auto; /* Let items fill the available space */
+  max-width: calc(30% - 70px); /* Limit width to fit 5 items per row with margin */
+  display: flex;
+  flex-direction: column; /* Align children vertically */
 }
 
 .product-item:hover {
@@ -61,8 +62,11 @@ body {
 
 /* Style the product details */
 .product-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allow details to grow vertically */
+  justify-content: space-between; /* Align details vertically */
   padding: 10px;
-  text-align: center;
 }
 
 .product-name {
@@ -80,7 +84,8 @@ body {
 }
 
 .add-to-cart-button {
-  margin-top: 10px;
+  margin-top: auto; /* Align to the bottom */
+  margin-bottom: 10px; /* Add some space at the bottom */
   padding: 5px 10px;
   background-color: rgb(38, 172, 61);
   color: white;
