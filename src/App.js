@@ -51,7 +51,7 @@ function App() {
     </ul>
     <ul className="navbar-nav">
       <li className="nav-item">
-        <Link className="nav-link btn btn-outline-primary" to="/products" role="button">GO TO SHOPPING</Link>
+        <Link className="nav-link btn btn-outline-primary" to="/products" role="button">PROCEED TO SHOPPING</Link>
       </li>
     </ul>
     <ul className="navbar-nav">
