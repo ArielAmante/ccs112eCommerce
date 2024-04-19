@@ -6,6 +6,7 @@ import Home from './components/Home';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import ViewCart from './components/ViewCart';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [cart, setCart] = useState([]);
