@@ -1,4 +1,5 @@
 // App.js
+
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
@@ -41,27 +42,24 @@ function App() {
 
   return (
     <Router>
-      <div className="container">
+    <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <div className="container-fluid d-flex justify-content-between">
-    <ul className="navbar-nav">
-      <li className="nav-item">
-        <Link className="nav-link btn btn-outline-primary" to="/" role="button">HOMEPAGE</Link>
-      </li>
-    </ul>
-    <ul className="navbar-nav">
-      <li className="nav-item">
-        <Link className="nav-link btn btn-outline-primary" to="/products" role="button">PROCEED TO SHOPPING</Link>
-      </li>
-    </ul>
-    <ul className="navbar-nav">
-      <li className="nav-item">
-        <Link className="nav-link btn btn-outline-primary" to="/cart" role="button">MY CART</Link>
-      </li>
-    </ul>
-  </div>
-</nav>
+        <div className="container-fluid d-flex justify-content-between">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link btn btn-outline-primary" to="/" role="button">HOMEPAGE</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link btn btn-outline-primary" to="/products" role="button">PROCEED TO SHOPPING</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link btn btn-outline-primary" to="/cart" role="button">MY CART</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
+  
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -75,9 +73,3 @@ function App() {
 }
 
 export default App;
-<footer className="bg-light text-center text-lg-start" style={{ marginTop: 'auto' }}>
-      <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-        © 2024 Your Website:
-        <a className="text-dark" href="https://yourwebsite.com/">yourwebsite.com</a>
-      </div>
-    </footer>

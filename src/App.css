@@ -11,6 +11,11 @@ body {
   color: white;
   padding: 20px;
   text-align: center;
+  }@media (max-width: 768px) {
+    .App-header {
+      font-size: 18px; /* Bawasan ang font size sa mas maliit na screen */
+      padding: 10px; /* Bawasan ang padding sa mas maliit na screen */
+    }
 }
 
 /* Style the links in the header */
@@ -19,7 +24,11 @@ body {
   text-decoration: none;
   color: black;
   font-size: 30px !important; /* Enlarge the font size to 30 */
+  @media (max-width: 768px) {
+    font-size: 24px; /* Bawasan ang font size sa mas maliit na screen */
+  }
 }
+
 
 .nav-link:hover {
   border-bottom: 2px solid black;
@@ -29,6 +38,9 @@ body {
 .product-list-container {
   background: linear-gradient(to bottom, rgb(4, 4, 4) 4, 4), rgb(46, 39, 39);
   padding: 20px;
+  @media (max-width: 768px) {
+    padding: 10px; /* Bawasan ang font size sa mas maliit na screen */
+  }
 }
 
 /* Style the product list */
@@ -54,6 +66,9 @@ body {
   max-width: calc(30% - 70px); /* Limit width to fit 5 items per row with margin */
   display: flex;
   flex-direction: column; /* Align children vertically */
+  @media (max-width: 768px) {
+    max-width: calc(50% - 20px); /* Bawasan ang width sa mas maliit na screen */
+  }
 }
 
 .product-item:hover {
@@ -67,6 +82,9 @@ body {
   flex-grow: 1; /* Allow details to grow vertically */
   justify-content: space-between; /* Align details vertically */
   padding: 10px;
+  @media (max-width: 768px) {
+    padding: 5px; /* Bawasan ang padding sa mas maliit na screen */
+  }
 }
 
 .product-name {
@@ -94,6 +112,10 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  @media (max-width: 768px) {
+    padding: 3px 8px; /* Bawasan ang padding sa mas maliit na screen */
+    font-size: 14px; /* Bawasan ang font size sa mas maliit na screen */
+  }
 }
 
 .add-to-cart-button:hover {
@@ -103,6 +125,10 @@ body {
 .navigation {
   display: flex;
   justify-content: flex-end;
+  align-items: e;
+  @media (max-width: 768px) {
+    justify-content: center; /* Center the navigation sa mas maliit na screen */
+  }
 }
 
 .nav-links {
@@ -123,6 +149,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+  @media (max-width: 768px) {
+    flex-wrap: wrap; /* Wrap ang mga link sa mas maliit na screen */
+  }
 }
 
 .nav-link.btn.btn-outline-primary:hover {
@@ -245,4 +274,40 @@ h2 {
 .btn.btn-custom-checkout {
   background-color: #ee4d2d;
   color: white;
+}
+
+
+/* Cart.css */
+
+.modal {
+  display: block; /* Show the modal */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* Center modal vertically and horizontally */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
