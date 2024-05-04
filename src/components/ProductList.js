@@ -1,4 +1,3 @@
-// ProductList.js
 import React from 'react';
 import yellowPad from '../images/yellow_pad.jpg';
 import scissors from '../images/scissors.jpg';
@@ -37,7 +36,7 @@ const ProductList = ({ addToCart }) => {
           <li key={product.id} className="product-item">
             <div className="product-details">
               <img src={product.image} alt={product.name} className="product-image" style={{ maxWidth: '100%', maxHeight: '100%' }} />
-              <h3 className="product-name">{product.name}</h3>
+              <h3 className="product-name text-center">{product.name}</h3>
               <p className="product-price">₱ {product.price}</p>
               <button onClick={() => addToCart(product)} className="add-to-cart-button">Add to Cart</button>
             </div>

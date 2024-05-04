@@ -8,6 +8,8 @@ import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import ViewCart from './components/ViewCart';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from './images/Logo.jpg';
+
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -42,22 +44,32 @@ function App() {
 
   return (
     <Router>
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid d-flex justify-content-between">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link btn btn-outline-primary" to="/" role="button">HOMEPAGE</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link btn btn-outline-primary" to="/products" role="button">PROCEED TO SHOPPING</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link btn btn-outline-primary" to="/cart" role="button">MY CART</Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+   <div>
+   <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <div className="container-fluid">
+            {/* Logo */}
+            <Link className="navbar-brand" to="/">
+              <img src={logo} alt="Logo" style={{ height: '50px' }} />
+            </Link>
+
+            {/* Navigation Links */}
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <Link className="nav-link btn btn-outline-primary" to="/" role="button">HOMEPAGE</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link btn btn-outline-primary" to="/products" role="button">PROCEED TO SHOPPING</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link btn btn-outline-primary" to="/cart" role="button">MY CART</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+
 
   
 

@@ -33,11 +33,11 @@ const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity, clea
   };
 
   return (
-    <div className="My-Cart container" style={{ fontSize: '20px' }}>
+    <div className="My-Cart container" style={{ fontSize: '20px', backgroundcolor: "#ee4d2d" }}>
       <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>My Cart</h2>
       <div className="table-responsive">
-        <table className="table table-bordered">
-          <thead>
+        <table className="table table-striped table-bordered">
+          <thead className="table-orange">
             <tr>
               <th style={{ minWidth: '200px', textAlign: 'left' }}>Product</th>
               <th style={{ minWidth: '200px', textAlign: 'left' }}>Description</th>
@@ -50,19 +50,24 @@ const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity, clea
           <tbody>
             {cart.map((item, index) => (
               <tr key={index}>
-                <td>{item.name}</td>
+                <td>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <img src={item.image} alt={item.name} style={{ width: '100px', height: 'auto', marginRight: '10px' }} />
+                    {item.name}
+                  </div>
+                </td>
                 <td>{item.description}</td>
                 <td style={{ textAlign: 'center' }}>₱ {item.price}</td>
                 <td style={{ textAlign: 'center' }}>
-                  <button className="btn btn-secondary btn-sm" onClick={() => decrementQuantity(index)}>-</button>
+                  <button className="btn btn-secondary btn-sm" onClick={() => decrementQuantity(index)} style={{backgroundColor: '#ee4d2d'}}>-</button>
                   {' '}{item.quantity}{' '}
-                  <button className="btn btn-secondary btn-sm" onClick={() => incrementQuantity(index)}>+</button>
+                  <button className="btn btn-secondary btn-sm" onClick={() => incrementQuantity(index)} style={{backgroundColor: '#ee4d2d'}}>+</button>
                 </td>
                 <td style={{ textAlign: 'center' }}>
                   <button className="btn btn-danger" onClick={() => {
                       removeFromCart(index);
                       if (cart.length <= 1) setShowCheckout(false);
-                    }}>Remove</button>
+                    }} style={{backgroundColor: '#ee4d2d'}}>Remove</button>
                 </td>
                 <td style={{ textAlign: 'center' }}>₱ {item.price * item.quantity}</td>
               </tr>
@@ -75,7 +80,7 @@ const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity, clea
         </table>
       </div>
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <button className="btn checkout-button" style={{ backgroundColor: '#ee4d2d' }} onClick={handleCheckout}>Checkout</button>
+        <button className="btn checkout-button" style={{ backgroundColor: '#ee4d2d', color: "white" }} onClick={handleCheckout}>Checkout</button>
       </div>
 
       {/* Bootstrap modal */}
