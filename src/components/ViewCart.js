@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const ViewCart = ({ cart, removeFromCart }) => {
+const ViewCart = () => {
+  // Initialize cart state using useState hook
+  const [cart, setCart] = useState([]);
+
+  // Function to remove item from cart
+  const removeFromCart = (index) => {
+    // Create a copy of the current cart array
+    const updatedCart = [...cart];
+    // Remove the item at the specified index
+    updatedCart.splice(index, 1);
+    // Update the cart state with the updated array
+    setCart(updatedCart);
+  };
+
   return (
     <div>
       <h2>Shopping Cart</h2>
