@@ -1,3 +1,5 @@
+//Cart.js
+
 import React, { useState, useEffect } from 'react';
 
 const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity, clearCart }) => {

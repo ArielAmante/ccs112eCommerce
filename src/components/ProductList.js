@@ -1,3 +1,5 @@
+//ProductList.js
+
 import React from 'react';
 import useApiDataFetcher from './ApiDataFetcher';
 import yellowPad from '../images/yellow_pad.jpg';
